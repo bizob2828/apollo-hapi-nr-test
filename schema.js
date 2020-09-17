@@ -11,9 +11,9 @@ const typeDefs = gql`
     relative_velocity_km_per_hour: Float,
     close_approach_date: String,
     is_potentially_hazardous: Boolean
-	}
-	
-	type Query {
+  }
+  
+  type Query {
     asteroids(date: String!): [Asteroid]!
   }
 `
