@@ -5,13 +5,12 @@ const { ApolloServer } = require('apollo-server-hapi')
 const typeDefs = require('./schema')
 const AsteroidAPI = require('./asteroid')
 const resolvers = require('./resolvers')
-const plugin = require('@newrelic/apollo-server-plugin')
 
 const HOST = 'localhost'
 const PORT = 6000
 
 async function StartServer() {
-  const server = new ApolloServer({ 
+  const server = new ApolloServer({
     typeDefs,
     resolvers,
     dataSources: () => ({
@@ -21,10 +20,7 @@ async function StartServer() {
       return {
         token: process.env.NASA_API_KEY
       }
-    },
-    plugins: [
-      plugin
-    ]
+    }
   })
 
   const app = new Hapi.server({
